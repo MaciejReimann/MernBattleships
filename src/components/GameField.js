@@ -21,6 +21,7 @@ class GameField extends Component {
     const canvas = findDOMNode(this.refs["canvas"]);
     colorCanvas(canvas)(this.state.shipColor);
     circumscribeCanvas(canvas)(this.state.mastColor);
+    console.log(this.props.data) // HERE i CAN DISPATCH EVENT - TU UPDATE THE STATE AND WRITE IN USER INPUT !!!!!!!!!!!
   }
 
   render() {

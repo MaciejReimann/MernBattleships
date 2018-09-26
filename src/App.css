@@ -17,17 +17,25 @@
   font-size: large;
 }
 
-.gameboard-container{
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gameboard-container {
+  margin: 50px;
   display: grid;
   align-items: center;
   justify-content: center;
 }
 
-.gameboard {
+/* .gameboard {
   display: grid;
   grid-template-rows: repeat(10, 10fr);
   grid-template-columns: repeat(10, 10fr);
-}
+} */
 .gamefield {
   margin: 0;
 }

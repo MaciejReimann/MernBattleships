@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+
 
 export const colorCanvas = canvas => color => {
   const ctx = canvas.getContext('2d');
