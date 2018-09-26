@@ -4,10 +4,11 @@ import { findDOMNode } from 'react-dom';
 class GameField extends Component {
   constructor(props) {
     super(props)
+    const { positionX, positionY, size } = this.props;
     this.state = {
-      position: {},
-      size: 50,
-
+      positionX: positionX,
+      positionY: positionY,
+      size: size,
     }
     this.onMouseOver = this.onMouseOver.bind(this);
   }
@@ -24,12 +25,13 @@ class GameField extends Component {
   onMouseOver = e => {
     const canvas = findDOMNode(this.refs["canvas"]);
     this.colorCanvas(canvas)("grey")
-        console.log(this.props)
+        console.log(this.state.positionX)
   }
 
   render() {
+    const {size} = this.state;
     return (
-      <div className="gamefield" style={{width: "50px", height: "50px"}}>
+      <div className="gamefield" style={{width: size, height: size}}>
         <canvas
           className="canvas"
           ref="canvas"
