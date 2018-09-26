@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 
+import {colorCanvas, circumscribeCanvas} from './drawingHelpers';
+
 class GameField extends Component {
   constructor(props) {
     super(props)
@@ -9,23 +11,16 @@ class GameField extends Component {
       positionX: positionX,
       positionY: positionY,
       size: size,
+      shipColor: "pink",
+      mastColor: "white"
     }
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
-
-
-  colorCanvas = canvas => color => {
-    const ctx = canvas.getContext('2d');
-    ctx.rect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = color;
-    ctx.fill();
-  }
-
   onMouseOver = e => {
     const canvas = findDOMNode(this.refs["canvas"]);
-    this.colorCanvas(canvas)("grey")
-        console.log(this.state.positionX)
+    colorCanvas(canvas)(this.state.shipColor);
+    circumscribeCanvas(canvas)(this.state.mastColor);
   }
 
   render() {
