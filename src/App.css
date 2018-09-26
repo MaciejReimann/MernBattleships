@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -22,7 +17,21 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.gameboard-container{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-rows: repeat(10, 10fr);
+  grid-template-columns: repeat(10, 10fr);
+}
+.gamefield {
+  margin: 0;
+}
+
+.canvas {
+  border: solid .1px black
 }
