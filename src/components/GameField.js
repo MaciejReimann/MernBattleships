@@ -7,9 +7,12 @@ class GameField extends Component {
     this.state = {
       position: {},
       size: 50,
+
     }
-    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseOver = this.onMouseOver.bind(this);
   }
+
+
 
   colorCanvas = canvas => color => {
     const ctx = canvas.getContext('2d');
@@ -18,9 +21,10 @@ class GameField extends Component {
     ctx.fill();
   }
 
-  onMouseDown = e => {
+  onMouseOver = e => {
     const canvas = findDOMNode(this.refs["canvas"]);
     this.colorCanvas(canvas)("grey")
+        console.log(this.props)
   }
 
   render() {
@@ -31,7 +35,12 @@ class GameField extends Component {
           ref="canvas"
           width={this.state.size}
           height={this.state.size}
-          onMouseDown = {this.onMouseDown}
+          onMouseDown = {this.onMouseOver}
+          onMouseOver = {e => {
+            if(this.props.isMouseDown){
+              return this.onMouseOver()
+            }
+          }}
         />
       </div>
     );
